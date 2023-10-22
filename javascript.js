@@ -1,8 +1,25 @@
-function playRound(playerSelection, computerSelection) {
-    // Converting strings to lowercase
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
+function game() {
+    // running game 5 times
+    for (let step = 0; step < 5; step++) {
+        const choices = ['rock', 'paper', 'scissors'];
+        
+        do {
+            var playerSelection = prompt("Select rock, paper, or scissors.");
+            playerSelection = playerSelection.toLowerCase();
+            if (!choices.includes(playerSelection)) {
+                console.log("Error, invalid choice. Select rock, paper, or scissors.")
+            }
+        } while (!choices.includes(playerSelection));
+        var computerSelection = getComputerChoice();
+
+        // Converting strings to lowercase
+        
     
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
+function playRound(playerSelection, computerSelection) {
     
     // Creating a dictionary
     const choices = {
@@ -23,6 +40,8 @@ function playRound(playerSelection, computerSelection) {
             return `You Lose! ${titleCase(computerSelection)} beats ${titleCase(playerSelection)}!`
         } else if (choices[playerSelection] > choices[computerSelection]) {
             return `You Win! ${titleCase(playerSelection)} beats ${titleCase(computerSelection)}!`
+        } else {
+            return ("Something bad happened.")
         }
     } else {
         return "Error, invalid choice."
@@ -45,8 +64,6 @@ function getComputerChoice() {
     return compChoice
 }
 
-
-  const playerSelection = "rock";
-  const computerSelection = getComputerChoice();
-  console.log(playRound(playerSelection, computerSelection));
+  
+  game();
   
