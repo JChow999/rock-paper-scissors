@@ -1,5 +1,4 @@
 function game() {
-    // running game 5 times
     for (let step = 0; step < 5; step++) {
         const choices = ['rock', 'paper', 'scissors'];
         
@@ -11,24 +10,19 @@ function game() {
             }
         } while (!choices.includes(playerSelection));
         var computerSelection = getComputerChoice();
-
-        // Converting strings to lowercase
         
-    
         console.log(playRound(playerSelection, computerSelection));
     }
 }
 
 function playRound(playerSelection, computerSelection) {
-    
-    // Creating a dictionary
     const choices = {
         rock: 0, 
         paper: 1, 
         scissors: 2
     };
 
-    // Check if user choice is a valid selection
+    // These if statements are to determine the winner the game to announce the results
     if (choices.hasOwnProperty(playerSelection)) {
         if (playerSelection == computerSelection) {
             return "It's a Tie!"
@@ -48,13 +42,13 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 
-  // Function to capitalize the first letter of a word
+  // Function to capitalize the first letter of a word to reduce code length in template literals
 function titleCase(word) {
     word = word.charAt(0).toUpperCase() + word.slice(1)
     return word
 } 
 
-// Function to generate a random choice for the computer player
+// Generates random choice for computer so game can decide winner
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
     var rand = Math.random() * choices.length;
