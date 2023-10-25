@@ -3,13 +3,13 @@ function game() {
         const choices = ['rock', 'paper', 'scissors'];
         
         do {
-            var playerSelection = prompt("Select rock, paper, or scissors.");
+            let playerSelection = prompt("Select rock, paper, or scissors.");
             playerSelection = playerSelection.toLowerCase();
             if (!choices.includes(playerSelection)) {
                 console.log("Error, invalid choice. Select rock, paper, or scissors.")
             }
         } while (!choices.includes(playerSelection));
-        var computerSelection = getComputerChoice();
+        let computerSelection = getComputerChoice();
         
         console.log(playRound(playerSelection, computerSelection));
     }
@@ -51,10 +51,10 @@ function titleCase(word) {
 // Generates random choice for computer so game can decide winner
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
-    var rand = Math.random() * choices.length;
+    let rand = Math.random() * choices.length;
     rand = Math.floor(rand)
 
-    var compChoice = choices[rand]
+    let compChoice = choices[rand]
     return compChoice
 }
 
