@@ -3,10 +3,38 @@
 <html lang="en"> 
     <head>
         <meta charset="utf-8">
-        <title>RPS</title>
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Rock Paper Scissors</h1>
+
+        <h1 id="title">Rock Paper Scissors</h1>
+        <h2 id="subtitle">Choose Your Destiny</h2>
+
+        <div id="gameCont">
+            <div id="gameInfo">
+                <div id="yourInfo">
+                    <img>
+                    <h3>You</h3>
+                    <h4>Your Score: </h4>
+                    <h5 id="yourChoice"></h5>
+                </div>
+                <div id="compInfo">
+                    <img>
+                    <h3>Computer</h3>
+                    <h4 id="compScore">Your Score: </h4>
+                    <h5 id="compChoice"></h5>
+                </div>
+            </div>
+            
+            <div id="buttonCont">
+                <button id="rock">✊</button>
+                <button id="paper">✋</button>
+                <button id="scissors">🤞</button>
+            </div>
+            
+        </div>
+        
         <script src="javascript.js"></script>
     </body>
 </html>

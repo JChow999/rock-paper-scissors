@@ -1,18 +1,26 @@
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+let playerScore = 0;
+let computerScore = 0;
+
 function game() {
-    for (let step = 0; step < 5; step++) {
+    // for (let step = 0; step < 5; step++) {
         const choices = ['rock', 'paper', 'scissors'];
-        
+        let playerSelection = ""
         do {
-            let playerSelection = prompt("Select rock, paper, or scissors.");
-            playerSelection = playerSelection.toLowerCase();
-            if (!choices.includes(playerSelection)) {
-                console.log("Error, invalid choice. Select rock, paper, or scissors.")
+            rock.addEventListener('click', () => console.log("rock"));
+            paper.addEventListener('click', () => playerSelection='paper');
+            scissors.addEventListener('click', () => playerSelection='scissors');
+            console.log(playerSelection)
             }
-        } while (!choices.includes(playerSelection));
+        while (!choices.includes(playerSelection));
         let computerSelection = getComputerChoice();
-        
+
         console.log(playRound(playerSelection, computerSelection));
-    }
+        playerSelection = ""
+    // }
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -59,5 +67,5 @@ function getComputerChoice() {
 }
 
   
-  game();
+game();
   
