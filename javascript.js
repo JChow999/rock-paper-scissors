@@ -2,6 +2,7 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
+const subtitle = document.querySelector("#subtitle");
 const playerScoreText = document.querySelector("#yourScore");
 const compScoreText = document.querySelector("#compScore");
 
@@ -22,6 +23,14 @@ function playRound(playerSelection, computerSelection) {
     console.log(playerScore, computerScore)
     playerScoreText.textContent = `Your Score: ${playerScore}`;
     compScoreText.textContent = `Your Score: ${computerScore}`;
+
+    if (playerScore >= 5) {
+        subtitle.textContent = "You Won! 🎉"
+        return
+    } else if (computerScore >= 5) {
+        subtitle.textContent = "You lost! 🙁"
+        return
+    } 
 
     if (playerSelection == computerSelection) {
         return "It's a Tie!"
