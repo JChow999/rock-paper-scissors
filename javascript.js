@@ -20,37 +20,33 @@ function playRound(playerSelection, computerSelection) {
         paper: 1,
         scissors: 2,
     }
-    console.log(playerScore, computerScore)
-    playerScoreText.textContent = `Your Score: ${playerScore}`;
-    compScoreText.textContent = `Your Score: ${computerScore}`;
-
+    
+    if (playerScore < 5 && computerScore < 5) {
+        console.log(playerScore)
+        if (playerSelection == computerSelection) {
+            subtitle.textContent = "It's a Tie!";
+        } else if (choices[playerSelection] == 0 && choices[computerSelection] == 2) {
+            subtitle.textContent = `You Win! ${titleCase(playerSelection)} beats ${titleCase(computerSelection)}!`
+            playerScore++
+        } else if (choices[playerSelection] == 2 && choices[computerSelection] == 0) {
+            subtitle.textContent = `You Lose! ${titleCase(computerSelection)} beats ${titleCase(playerSelection)}!`
+            computerScore++
+        } else if (choices[playerSelection] < choices[computerSelection]) {
+            subtitle.textContent = `You Lose! ${titleCase(computerSelection)} beats ${titleCase(playerSelection)}!`
+            computerScore++
+        } else if (choices[playerSelection] > choices[computerSelection]) {
+            subtitle.textContent = `You Win! ${titleCase(playerSelection)} beats ${titleCase(computerSelection)}!` 
+            playerScore++
+        }
+    } 
     if (playerScore >= 5) {
         subtitle.textContent = "You Won! 🎉"
-        return
     } else if (computerScore >= 5) {
-        subtitle.textContent = "You lost! 🙁"
-        return
-    } 
-
-    if (playerSelection == computerSelection) {
-        return "It's a Tie!"
-    } else if (choices[playerSelection] == 0 && choices[computerSelection] == 2) {
-        playerScore++
-        return `You Win! ${titleCase(playerSelection)} beats ${titleCase(computerSelection)}!`
-    } else if (choices[playerSelection] == 2 && choices[computerSelection] == 0) {
-        computerScore++
-        return `You Lose! ${titleCase(computerSelection)} beats ${titleCase(playerSelection)}!`
-    } else if (choices[playerSelection] < choices[computerSelection]) {
-        computerScore++
-        return `You Lose! ${titleCase(computerSelection)} beats ${titleCase(playerSelection)}!`
-    } else if (choices[playerSelection] > choices[computerSelection]) {
-        playerScore++
-        return `You Win! ${titleCase(playerSelection)} beats ${titleCase(computerSelection)}!` 
-    } else {
-        return ("Something bad happened.")
+        subtitle.textContent = "You lost! 🙁" 
     }
-
     
+    playerScoreText.textContent = `Your Score: ${playerScore}`;
+    compScoreText.textContent = `Computer Score: ${computerScore}`;
   }
 
   // Function to capitalize the first letter of a word to reduce code length in template literals
@@ -69,15 +65,6 @@ function getComputerChoice() {
     return compChoice
 }
 
-// function game() {
-//     let playerSelection = ""
-
-//     let computerSelection = getComputerChoice();
-
-    
-    
-//     console.log(playerScore, computerScore)
-// }
 
 
   
